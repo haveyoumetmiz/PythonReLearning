@@ -106,12 +106,47 @@ text = "I love Python"
 print(text.replace("Python", "coding"))  # I love coding
 print(text.find("love"))  # 2 (index)
 print(text.find("Java"))  # -1 (not found)
+print(text.index("love")) # 2 (index)
+print(text.index("Java")) # ValueError (not found)
 
 
 # String formatting (f-string)
 name = "Mizu"
 age = 21
 print(f"My name is {name} and I am {age} years old.")
+print(f"{name} is {age} years old.")
+print(f"Hello, {name}! You are {age} years old.")
+print(f"{name} is a student.")
+
+# String formatting (format method)
+name = "Mizu"
+age = 21
+print("My name is {} and I am {} years old.".format(name, age))
+print("{} is {} years old.".format(name, age))
+
+vowels = "aeiou"
+count = sum(1 for c in s.lower() if c in vowels)
+print(f"Number of vowels in '{s}': {count}")
+# Counting vowels in a string
+s = "hello world"
+
+
+n = 123
+total = sum(int(d) for d in str(n))
+print(f"Sum of digits in {n}: {total}")
+n = 123                # A number
+# Step 1: Convert to string
+n_str = str(n)         # '123'
+# Step 2: Loop through each character in the string
+total = 0
+for d in n_str:        # d will be '1', then '2', then '3'
+    digit = int(d)     # Convert '1' -> 1, '2' -> 2, etc.
+    total += digit     # Add it to the running total
+print(total)           # Output: 6
+
+
+
+
 
 
 
