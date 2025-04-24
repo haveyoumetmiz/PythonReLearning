@@ -145,6 +145,16 @@ for d in n_str:        # d will be '1', then '2', then '3'
 print(total)           # Output: 6
 
 
+def two_sum(nums, target):
+    for i in range(len(nums)):
+        for j in range(i + 1, len(nums)):
+            if nums[i] + nums[j] == target:
+                return [i, j]
+    return []
+
+nums = [3, 2, 4]
+target = 6
+print(two_sum(nums, target))  # Output: [1, 2]
 
 
 
