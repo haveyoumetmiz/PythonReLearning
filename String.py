@@ -35,6 +35,96 @@ print(p.split("o", -1)) # ['Hell', ' W', 'rld'] (split at all 'o')
 print(p.split("o", -2)) # ['Hell', ' W', 'rld'] (split at all 'o')  
 
 
+"hello world".capitalize()
+# Output: 'Hello world'
+"HeLLo".casefold()
+# Output: 'hello'
+"hi".center(10, "*")
+# Output: '****hi****'
+"hello".encode()
+# Output: b'hello'
+"hello.py".endswith(".py")
+# Output: True
+"hello\tworld".expandtabs(4)
+# Output: 'hello   world'
+"pineapple".find("apple")
+# Output: 4
+"Hello {}, your score is {}".format("Mizu", 99)
+# Output: 'Hello Mizu, your score is 99'
+data = {"name": "Zu", "age": 22}
+"Name: {name}, Age: {age}".format_map(data)
+# Output: 'Name: Zu, Age: 22'
+"hello".index("e")
+# Output: 1
+"Python3".isalnum()
+# Output: True
+"Python".isalpha()
+# Output: True
+"Hi123".isascii()
+# Output: True
+"123".isdecimal()
+# Output: True
+"123".isdigit()
+# Output: True
+"my_var1".isidentifier()
+# Output: True
+"hello".islower()
+# Output: True
+"²34".isnumeric()
+# Output: True
+"Hello!\n".isprintable()
+# Output: False
+"   ".isspace()
+# Output: True
+"Hello World".istitle()
+# Output: True
+"HELLO".isupper()
+# Output: True
+"-".join(["a", "b", "c"])
+# Output: 'a-b-c'
+"Hi".ljust(5, ".")
+# Output: 'Hi...'
+"HELLO".lower()
+# Output: 'hello'
+"   Hello".lstrip()
+# Output: 'Hello'
+trans = str.maketrans("ae", "12")
+"apple".translate(trans)
+# Output: '1ppl2'
+"email@example.com".partition("@")
+# Output: ('email', '@', 'example.com')
+"hello world".replace("world", "Zu")
+# Output: 'hello Zu'
+"hello hello".rfind("lo")
+# Output: 9
+"banana".rindex("a")
+# Output: 5
+"Hi".rjust(5, "*")
+# Output: '***Hi'
+"hello@world@com".rpartition("@")
+# Output: ('hello@world', '@', 'com')
+"apple,banana,grape".rsplit(",", 1)
+# Output: ['apple,banana', 'grape']
+"hello   ".rstrip()
+# Output: 'hello'
+"one,two,three".split(",")
+# Output: ['one', 'two', 'three']
+"line1\nline2".splitlines()
+# Output: ['line1', 'line2']
+"sunshine".startswith("sun")
+# Output: True
+"  hey  ".strip()
+# Output: 'hey'
+"HeLLo".swapcase()
+# Output: 'hEllO'
+"hello world".title()
+# Output: 'Hello World'
+"hello".upper()
+# Output: 'HELLO'
+"42".zfill(5)
+# Output: '00042'
+
+
 # Checking string properties
 p = "Hello World"
 print(p.isalpha())     # False (because of space)
@@ -124,47 +214,191 @@ age = 21
 print("My name is {} and I am {} years old.".format(name, age))
 print("{} is {} years old.".format(name, age))
 
-vowels = "aeiou"
-count = sum(1 for c in s.lower() if c in vowels)
-print(f"Number of vowels in '{s}': {count}")
-# Counting vowels in a string
-s = "hello world"
+#Lists
+fruits = ["apple", "banana"]
+fruits.append("cherry")
+print(fruits)
+# Output: ['apple', 'banana', 'cherry']
+
+fruits = ["apple", "banana"]
+fruits.clear()
+print(fruits)
+# Output: []
+
+fruits = ["apple", "banana"]
+new_fruits = fruits.copy()
+print(new_fruits)
+# Output: ['apple', 'banana']
+
+nums = [1, 2, 2, 3, 2]
+print(nums.count(2))
+# Output: 3
+
+a = [1, 2]
+b = [3, 4]
+a.extend(b)
+print(a)
+# Output: [1, 2, 3, 4]
+
+colors = ["red", "blue", "green"]
+print(colors.index("blue"))
+# Output: 1
+
+numbers = [1, 3, 4]
+numbers.insert(1, 2)
+print(numbers)
+# Output: [1, 2, 3, 4]
+
+items = [10, 20, 30]
+items.pop()
+# Output: 30
+print(items)
+# Output: [10, 20]
+
+nums = [1, 2, 3, 2]
+nums.remove(2)
+print(nums)
+# Output: [1, 3, 2]
+
+letters = ['a', 'b', 'c']
+letters.reverse()
+print(letters)
+# Output: ['c', 'b', 'a']
+
+scores = [5, 2, 9, 1]
+scores.sort()
+print(scores)
+# Output: [1, 2, 5, 9]
+
+words = ["banana", "apple", "cherry"]
+words.sort(key=len)
+print(words)
+# Output: ['apple', 'banana', 'cherry']
+
+words = ["banana", "kiwi", "apple", "cherry"]
+words.sort(key=lambda word: word[-1])
+print(words)
+# Output: ['banana', 'apple', 'kiwi', 'cherry']
+
+words = ["banana", "Apple", "cherry", "apple"]
+words.sort(key=str.lower)
+print(words)
+# Output: ['Apple', 'apple', 'banana', 'cherry']
+
+words = ["banana", "kiwi", "apple", "cherry", "ananas", "mango", "lemon", "orange", "lime", 
+         "grapefruit", "grape", "blueberry", "melon", "strawberry", "raspberry", "blackberry", "pear"]
+
+# Separate the berry gang and non-berry gang
+berry_words = []
+non_berry_words = []
+
+for word in words:
+    if "berry" in word:
+        berry_words.append(word)
+    else:
+        non_berry_words.append(word)
+
+# Sort 'em both like a good playlist
+berry_words.sort()
+non_berry_words.sort()
+
+# Merge into the ultimate fruit list
+final_list = berry_words + non_berry_words
+
+print(final_list)
 
 
-n = 123
-total = sum(int(d) for d in str(n))
-print(f"Sum of digits in {n}: {total}")
-n = 123                # A number
-# Step 1: Convert to string
-n_str = str(n)         # '123'
-# Step 2: Loop through each character in the string
-total = 0
-for d in n_str:        # d will be '1', then '2', then '3'
-    digit = int(d)     # Convert '1' -> 1, '2' -> 2, etc.
-    total += digit     # Add it to the running total
-print(total)           # Output: 6
 
 
-def two_sum(nums, target):
-    for i in range(len(nums)):
-        for j in range(i + 1, len(nums)):
-            if nums[i] + nums[j] == target:
-                return [i, j]
-    return []
+#tuple
+t = (1, 2, 3, 2, 4, 2)
 
-nums = [3, 2, 4]
-target = 6
-print(two_sum(nums, target))  # Output: [1, 2]
+print(t.count(2))   # Output: 3
+print(t.index(3))   # Output: 2
 
 
+#set
+a = {1, 2, 3}
+b = {3, 4, 5}
 
+print(a.union(b))                # {1, 2, 3, 4, 5}
+print(a | b)                     # same as union
 
+print(a.intersection(b))         # {3}
+print(a & b)                     # same
 
+print(a.difference(b))           # {1, 2}
+print(a - b)                     # same
 
+print(a.symmetric_difference(b)) # {1, 2, 4, 5}
+print(a ^ b)                     # same
 
+print(a.issubset(b))             # False
+print(a.issuperset(b))           # False
+print(a.isdisjoint(b))           # False
 
 
 
+nums = [3, 1, 4]
+new_nums = sorted(nums)
+print(new_nums)
+# Output: [1, 3, 4]
+print(nums)
+# Output: [3, 1, 4]
 
-vowels = "aeiou"
-count = sum(1 for c in s.lower() if c in vowels)
+len([1, 2, 3])
+# Output: 3
+
+"apple" in ["apple", "banana"]
+# Output: True
+
+items = [1, 2, 3]
+del items[1]
+print(items)
+# Output: [1, 3]
+
+
+
+#find the Largest Number in a List
+
+numbers = [12, 56, 34, 78, 89, 23, 45]
+largest_number = max(numbers)
+print("The largest number is:", largest_number) # The largest number is: 89
+
+#Check if a String is a Palindrome
+word = "madame"
+if word == word[::-1]:
+    print("palindrome")
+else:
+    print("Not") # Not a palindrome
+
+#Find the Common Elements in Two Lists
+list1 = [1, 2, 3, 4, 5]
+list2 = [4, 5, 6, 7, 8]
+common_elements = set(list1) & set(list2)
+print("Common elements:", common_elements) # Common elements: {4, 5}
+
+#Reverse a String Without Using Reverse Method
+
+s = "Hello, World!"
+reversed_s = ''.join(reversed(s))
+print("Reversed string:", reversed_s) # Reversed string: !dlroW ,olleH
+
+
+#Count Occurrences of Each Character in a String
+
+text = "hello there, how are you?"
+char_count = {}
+
+for char in text: 
+    if char in char_count:
+        char_count[char] += 1
+    else:
+        char_count[char] = 1
+
+print("Character counts:", char_count) # Character counts: {'h': 2, 'e': 3, 'l': 2, 'o': 3, ' ': 6, 't': 1, 'r': 1, ',': 1, 'w': 1, 'a': 1, 'y': 1, '?': 1}
+
+#Remove Duplicates from a List
+numbers = [1, 2, 2, 3, 4, 4, 5]
+unique_numbers = list(set(numbers))
+print("List without duplicates:", unique_numbers)
