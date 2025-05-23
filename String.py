@@ -398,6 +398,20 @@ for char in text:
 
 print("Character counts:", char_count) # Character counts: {'h': 2, 'e': 3, 'l': 2, 'o': 3, ' ': 6, 't': 1, 'r': 1, ',': 1, 'w': 1, 'a': 1, 'y': 1, '?': 1}
 
+
+sentence = input("Enter a sentence: ")
+words = sentence.split()
+visited = []
+
+for i in range(len(words)):
+    if words[i] not in visited:
+        count = 0
+        for j in range(len(words)):
+            if words[i] == words[j]:
+                count += 1
+        visited.append(words[i])
+        print(words[i], ":", count)
+             
 #Remove Duplicates from a List
 numbers = [1, 2, 2, 3, 4, 4, 5]
 unique_numbers = list(set(numbers))
